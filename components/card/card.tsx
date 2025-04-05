@@ -7,6 +7,7 @@ import React, { memo } from 'react';
 import HighlightCode from '../highlight-code';
 
 export type RemoveCard = (cardId: string) => void;
+
 interface CardProps extends Question {
 	isFlipped: boolean;
 }
@@ -30,11 +31,15 @@ export default memo(function Card({
 			dragConstraints={{ left: 0, right: 0 }}
 			onDragStart={() => setIsDragging(true)}
 			onDragEnd={handleDragEnd}
-			onClick={() => handleCardClick(id)}
+			onClick={() => {
+				if (!isDragging) {
+					handleCardClick(id);
+				}
+			}}
 			animate={controls}
 			initial={{ scale: 1 }}
 			whileTap={{ scale: isDragging ? 1.05 : 1 }}
-			transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+			transition={{ type: 'spring', stiffness: 400, damping: 40 }}
 		>
 			<div
 				className={cn(
@@ -57,12 +62,11 @@ export default memo(function Card({
 				</div>
 				<div className='absolute w-full h-full backface-hidden flex flex-col justify-center items-center rounded-2xl p-5 bg-gray-600 text-white rotate-y-180 overflow-y-auto'>
 					<div className='w-full h-full overflow-y-auto'>
-						<h3>Ответ:</h3>
 						<p>{answer}</p>
 						{lists &&
 							lists.map((list, index) => (
 								<React.Fragment key={index}>
-									<h4>{list.title}</h4>
+									<h4 className='font-bold'>{list.title}</h4>
 									<ul>
 										{list.items.map((item, index) => (
 											<li key={index}>{item}</li>

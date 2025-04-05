@@ -1,7 +1,7 @@
 import { useCardInfo } from '@/utils/hooks/card/useCardInfo';
 import { AnimatePresence, motion } from 'framer-motion';
 import Card from './card';
-import CardResetButton from './card-reset';
+import CardResetButton from './reset-button';
 import { type JavascriptProps } from '../questions/Javascript';
 
 interface CardListProps extends JavascriptProps {}
@@ -10,7 +10,7 @@ export default function CardList({ isMobile }: CardListProps) {
 	const { cardsState, expandedCardId } = useCardInfo();
 
 	return (
-		<div className='flex flex-col justify-center items-center p-5 w-full min-h-screen gap-5'>
+		<div className='flex flex-col justify-center items-center p-5 w-full h-(--calc-height) gap-5'>
 			{cardsState.length > 0 ? (
 				<div className='relative w-full max-w-[500px] h-[400px] mx-auto'>
 					<AnimatePresence>
