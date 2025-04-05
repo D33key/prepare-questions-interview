@@ -1,5 +1,5 @@
-import AppSidebar from '@/components/app-sidebar';
-import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
+import AppSidebar from '@/entities/app-sidebar';
+import { SidebarProvider, SidebarTrigger } from '@/shared/ui/sidebar/sidebar';
 
 export default function PageLayout({
 	children,

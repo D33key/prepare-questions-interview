@@ -1,4 +1,4 @@
-import { type QuestionWithoutId } from '@/types';
+import { type QuestionWithoutId } from '@/shared/types';
 
 export const questions: QuestionWithoutId[] = [
 	{

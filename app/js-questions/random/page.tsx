@@ -1,4 +1,4 @@
-import Javascript from '@/components/questions/Javascript';
+import RandomCards from '@/features/card/ui';
 import { headers } from 'next/headers';
 
 export default async function Page() {
@@ -10,5 +10,5 @@ export default async function Page() {
 			userAgent,
 		) || /iPad|Android(?!.*Mobile)|Tablet/i.test(userAgent);
 
-	return <Javascript isMobile={isMobile} />;
+	return <RandomCards isMobile={isMobile} queryOptions='javascript' />;
 }
