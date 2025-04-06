@@ -143,3 +143,18 @@
 		--sidebar-ring: 217.2 91.2% 59.8%;
 	}
 }
+
+::-webkit-scrollbar {
+  width: 3px; 
+  height: 3px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 4px;
+}

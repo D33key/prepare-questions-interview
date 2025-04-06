@@ -52,7 +52,6 @@ export function CardsProvider({
 	}, []);
 
 	const removeCard = useCallback((cardId: string) => {
-		console.log(cardId);
 		setCardsState((prev) => prev.filter((card) => card.id !== cardId));
 	}, []);
 

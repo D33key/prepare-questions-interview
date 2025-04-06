@@ -2,12 +2,12 @@ import { useCardInfo } from '@/features/card/hooks/use-card-info';
 import { AnimatePresence, motion } from 'framer-motion';
 import Card from './card';
 import CardResetButton from './reset-button';
-import { type JavascriptProps } from '.';
+import { type RandomCardProps } from '.';
 import Div from '@/shared/ui/div';
 
 export default function CardList({
 	isMobile,
-}: Pick<JavascriptProps, 'isMobile'>) {
+}: Pick<RandomCardProps, 'isMobile'>) {
 	const { cardsState, expandedCardId } = useCardInfo();
 
 	return (

@@ -1,11 +1,11 @@
-import HighlightCode from '@/entities/highlight-code/ui';
 import { useCardActions } from '@/features/card/hooks/use-card-actions';
 import { Question } from '@/shared/types';
 import Div from '@/shared/ui/div';
 import Hint from '@/shared/ui/hint';
 import { motion } from 'framer-motion';
-import React, { memo } from 'react';
+import { memo } from 'react';
 import useCardDragControl from '../hooks/use-card-drag-control';
+import Markdown from '@/entities/markdown';
 
 export type RemoveCard = (cardId: string) => void;
 
@@ -13,14 +13,7 @@ interface CardProps extends Question {
 	isFlipped: boolean;
 }
 
-export default memo(function Card({
-	answer,
-	id,
-	title,
-	code,
-	lists,
-	isFlipped,
-}: CardProps) {
+export default memo(function Card({ id, title, answer, isFlipped }: CardProps) {
 	const { handleCardClick } = useCardActions();
 	const { controls, handleDragEnd, isDragging, setIsDragging } =
 		useCardDragControl(id);
@@ -56,21 +49,8 @@ export default memo(function Card({
 					</Div>
 				</Div>
 				<Div variant='backCard'>
-					<Div variant='scrollY'>
-						<p>{answer}</p>
-						{lists &&
-							lists.map((list, index) => (
-								<React.Fragment key={index}>
-									<h4 className='font-bold'>{list.title}</h4>
-									<ul>
-										{list.items.map((item, index) => (
-											<li key={index}>{item}</li>
-										))}
-									</ul>
-									{list?.code && <HighlightCode code={list.code} />}
-								</React.Fragment>
-							))}
-						{code && <HighlightCode code={code} />}
+					<Div variant='scrollY' className='card-scrollable-container pr-2'>
+						<Markdown answer={answer} />
 					</Div>
 				</Div>
 			</Div>

@@ -9,7 +9,7 @@ import { useSuspenseQuery } from '@tanstack/react-query';
 import { CardsProvider } from './cards-provider';
 import CardList from './card-list';
 
-export interface JavascriptProps {
+export interface RandomCardProps {
 	isMobile: boolean;
 	queryOptions: KeysQueryOptionsObject;
 }
@@ -17,7 +17,7 @@ export interface JavascriptProps {
 export default function RandomCards({
 	isMobile,
 	queryOptions,
-}: JavascriptProps) {
+}: RandomCardProps) {
 	const { data, isLoading, isError } = useSuspenseQuery(
 		queryOptionsObject[queryOptions],
 	);

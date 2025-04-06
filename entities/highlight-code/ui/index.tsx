@@ -1,53 +1,38 @@
-import { type Code } from '@/shared/types';
 import { Highlight, themes } from 'prism-react-renderer';
 import useFormattedCode from '../hooks/use-formatted-code';
 
-export default function HighlightCode({ code }: { code: Code }) {
-	const typeofCode = typeof code === 'object';
-	const formattedCode = useFormattedCode(typeofCode ? code.code : code);
+export default function HighlightCode({
+	children: code,
+}: {
+	children: string;
+}) {
+	console.log(code)
+	const formattedCode = useFormattedCode(code);
 
 	return (
-		<>
-			{typeofCode && 'title' in code && <h4>{code.title}</h4>}
-			<Highlight
-				theme={themes.shadesOfPurple}
-				code={formattedCode}
-				language='tsx'
-			>
-				{({ style, tokens, getLineProps, getTokenProps }) => (
-					<pre
-						style={{
-							...style,
-							padding: '20px',
-							borderRadius: '4px',
-							maxWidth: '100%',
-							whiteSpace: 'pre-wrap',
-							wordBreak: 'break-word',
-							fontFamily: 'monospace',
-							fontSize: '14px',
-							tabSize: 2,
-							margin: 0,
-						}}
-					>
-						{tokens.map((line, i) => (
-							<div key={i} {...getLineProps({ line })}>
-								<span
-									style={{
-										display: 'inline-block',
-										width: '2em',
-										opacity: 0.5,
-									}}
-								>
-									{i + 1}
-								</span>
-								{line.map((token, key) => (
-									<span key={key} {...getTokenProps({ token })} />
-								))}
-							</div>
-						))}
-					</pre>
-				)}
-			</Highlight>
-		</>
+		<Highlight
+			theme={themes.vsDark}
+			code={formattedCode}
+			language='tsx'
+		>
+			{({ style, tokens, getLineProps, getTokenProps }) => (
+				<pre
+					className='p-4 rounded-sm max-w-full whitespace-pre-wrap break-all font-mono text-sm m-[0px]'
+					style={{
+						...style,
+						tabSize: 2,
+					}}
+				>
+					{tokens.map((line, i) => (
+						<div key={i} {...getLineProps({ line })}>
+							<span className='inline-block w-[2em] opacity-50'>{i + 1}</span>
+							{line.map((token, key) => (
+								<span key={key} {...getTokenProps({ token })} />
+							))}
+						</div>
+					))}
+				</pre>
+			)}
+		</Highlight>
 	);
 }
