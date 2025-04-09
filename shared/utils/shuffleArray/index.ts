@@ -4,7 +4,6 @@ export default function deterministicShuffle(
 	array: Question[],
 	seed: number = Math.round(Math.random() * 100) + 1,
 ) {
-	console.log(seed);
 	const shuffled = [...array];
 
 	const random = () => {

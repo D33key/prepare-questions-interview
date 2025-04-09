@@ -8,7 +8,7 @@ function generateTypesOfQuestions(
 	return pages.map((page, index) => ({
 		id: index,
 		text: page,
-		url: url + url.prefix[index],
+		url: url.url + url.prefix[index],
 	}));
 }
 

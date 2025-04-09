@@ -1,7 +1,6 @@
-import RandomCards from '@/features/card/ui';
 import { headers } from 'next/headers';
 
-export default async function Page() {
+export default async function isMobileOnServer() {
 	const headersList = await headers();
 	const userAgent = headersList.get('user-agent') || '';
 
@@ -10,5 +9,5 @@ export default async function Page() {
 			userAgent,
 		) || /iPad|Android(?!.*Mobile)|Tablet/i.test(userAgent);
 
-	return <RandomCards isMobile={isMobile} queryOptions='javascript' />;
+	return isMobile;
 }

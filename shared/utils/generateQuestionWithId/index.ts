@@ -1,7 +1,6 @@
 import { type QuestionWithoutId } from '@/shared/types';
 
 export default function generateQuestionWithId(questions: QuestionWithoutId[]) {
-	console.log(typeof crypto !== 'undefined');
 	return questions.map((question) => ({
 		...question,
 		id:

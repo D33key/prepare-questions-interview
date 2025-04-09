@@ -11,7 +11,5 @@ export default function Page() {
 			.then(setA);
 	}, []);
 
-	console.log(a);
-
 	return a && <AccordionCards data={a} />;
 }

@@ -30,14 +30,20 @@ export const CardsContext = createContext<CardsContext>({
 });
 export const CardsAction = createContext<CardsActions | null>(null);
 
+const VISIBLE_CARDS_COUNT = 2;
+const VISIBLE_CARDS_COUNT_INDEX = VISIBLE_CARDS_COUNT - 1;
+
 export function CardsProvider({
 	children,
 	initValue,
 	seed,
 }: ProviderProps & { initValue: Question[]; seed: number }) {
+	const allCards = useRef(shuffleArray(initValue, seed));
+	const lastShowedCardIndex = useRef(VISIBLE_CARDS_COUNT_INDEX);
+
 	const [expandedCardId, setExpandedCardId] = useState<string | null>(null);
 	const [cardsState, setCardsState] = useState<Question[]>(() =>
-		shuffleArray(initValue, seed),
+		allCards.current.slice(0, VISIBLE_CARDS_COUNT),
 	);
 
 	const expandedCardIdRef = useRef(expandedCardId);
@@ -52,7 +58,14 @@ export function CardsProvider({
 	}, []);
 
 	const removeCard = useCallback((cardId: string) => {
-		setCardsState((prev) => prev.filter((card) => card.id !== cardId));
+		lastShowedCardIndex.current++;
+		setCardsState((prev) => {
+			const filteredArray = prev.filter((card) => card.id !== cardId);
+			if (allCards.current.length > lastShowedCardIndex.current) {
+				filteredArray.push(allCards.current[lastShowedCardIndex.current]);
+			}
+			return filteredArray;
+		});
 	}, []);
 
 	const handleSwipe = useCallback(() => {
@@ -61,7 +74,11 @@ export function CardsProvider({
 
 	const resetCards = useCallback(() => {
 		setExpandedCardId(null);
-		setCardsState(shuffleArray(initValue));
+
+		allCards.current = shuffleArray(initValue);
+		lastShowedCardIndex.current = VISIBLE_CARDS_COUNT_INDEX;
+
+		setCardsState(allCards.current.slice(0, VISIBLE_CARDS_COUNT));
 	}, []);
 
 	const value = useMemo(

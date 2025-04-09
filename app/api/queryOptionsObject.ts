@@ -1,16 +1,13 @@
-import { queryOptions as queryOptionsTanstack } from '@tanstack/react-query';
+import generateQueryOptions from './_utils/generateQueryOptions';
 
-export const queryOptionsObject = {
-	javascript: queryOptionsTanstack({
-		queryKey: ['javascript'],
-		queryFn: async () => {
-			const response = await fetch(
-				`${process.env.NEXT_PUBLIC_BASE_URL}/api/javascript.json`,
-			);
+type ApiRequest = (
+	isPagination: boolean,
+) => ReturnType<typeof generateQueryOptions>;
 
-			return response.json();
-		},
-	}),
+export const queryOptionsObject: Record<string, ApiRequest> = {
+	javascript: (isPagination) =>
+		generateQueryOptions('javascript', isPagination),
+	react: (isPagination) => generateQueryOptions('react', isPagination),
 };
 
 export type KeysQueryOptionsObject = keyof typeof queryOptionsObject;

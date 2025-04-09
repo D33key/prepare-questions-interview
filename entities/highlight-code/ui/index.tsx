@@ -6,7 +6,6 @@ export default function HighlightCode({
 }: {
 	children: string;
 }) {
-	console.log(code)
 	const formattedCode = useFormattedCode(code);
 
 	return (

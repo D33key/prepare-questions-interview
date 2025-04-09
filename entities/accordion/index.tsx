@@ -1,21 +1,34 @@
-import { type Question } from '@/shared/types';
+'use client';
+
+import { type KeysQueryOptionsObject } from '@/app/api/queryOptionsObject';
+import useQuery from '@/shared/hooks/use-query';
 import {
 	Accordion,
 	AccordionContent,
 	AccordionItem,
 	AccordionTrigger,
 } from '@/shared/ui/accordion/accordion';
+import Loader from '@/shared/ui/loader/loader';
 import Markdown from '../markdown';
 
-export default function AccordionCards({ data }: { data: Question[] }) {
+export default function AccordionCards({
+	queryOptions,
+}: {
+	queryOptions: KeysQueryOptionsObject;
+}) {
+	const { data, isLoading, isError } = useQuery(queryOptions);
+
+	if (isLoading) return <Loader className='mx-auto h-full' />;
+	if (isError) return <p>Не удалось загрузить данные!</p>;
+
 	return (
-		<div className='flex flex-col gap-6 w-full md:flex-row flex-wrap'>
+		<div className='flex flex-col gap-3 w-full md:flex-row flex-wrap px-3 overflow-y-auto h-(--calc-height)'>
 			{data.map((card) => (
 				<Accordion
 					key={card.id}
 					type='single'
 					collapsible
-					className='w-full md:w-1/3 size-fit'
+					className='w-full size-fit flex-auto'
 				>
 					<AccordionItem
 						value='item-1'

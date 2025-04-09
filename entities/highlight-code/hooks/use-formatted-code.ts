@@ -13,12 +13,15 @@ export default function useFormattedCode(initialCode: string) {
 				const formatted = await prettier.format(initialCode, {
 					parser: 'babel-ts',
 					plugins: [babelParser, parserHtml, estree],
-					semi: false,
+					semi: true,
 					singleQuote: true,
 					jsxSingleQuote: true,
 					printWidth: 80,
 					tabWidth: 4,
 					trailingComma: 'es5',
+					proseWrap: 'never',
+					endOfLine: 'auto',
+					bracketSameLine: false,
 				});
 				setFormattedCode(formatted);
 			} catch (error) {
