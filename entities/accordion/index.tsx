@@ -14,6 +14,6 @@ export default function AccordionCards({
 
 	if (isLoading) return <Loader className='mx-auto h-full' />;
 	if (isError) return <p>Не удалось загрузить данные!</p>;
-	
+
 	return <AccordionWithSearch data={data} />;
 }

@@ -8,13 +8,17 @@ export default function generateQueryOptions(url: URLS_KEYS_TYPE) {
 			try {
 				const basePath =
 					process.env.NEXT_PUBLIC_BASE_URL ??
-					'd33key.github.io/prepare-questions-interview';
-
+					'https://d33key.github.io/prepare-questions-interview';
 				const response = await fetch(`${basePath}/api/${url}.json`);
 
-				return response.json();
+				if (response.ok) {
+					return response.json();
+				}
+
+				return Promise.resolve([]);
 			} catch (error) {
-				console.log(error);
+				console.log('Ошибка при запросе', error);
+				throw new Error('Ошибка при запросе');
 			}
 		},
 	});

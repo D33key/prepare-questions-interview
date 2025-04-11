@@ -15,7 +15,6 @@ export default function RandomCards({ queryOptions }: RandomCardProps) {
 
 	if (isLoading) return <Loader className='mx-auto h-full' />;
 	if (isError) return <p>Не удалось загрузить данные!</p>;
-
 	return (
 		data && (
 			<CardsProvider initValue={data} seed={42}>
