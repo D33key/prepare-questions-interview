@@ -5,6 +5,7 @@ export default function generateQueryOptions(
 	url: URLS_KEYS_TYPE,
 	isPagination: boolean,
 ) {
+	console.log('URL in QUERY', url)
 	return queryOptions({
 		queryKey: [url],
 		queryFn: async () => {

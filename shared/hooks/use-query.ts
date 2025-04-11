@@ -9,6 +9,7 @@ export default function useQuery<T extends QuestionResponse>(
 	queryOptions: KeysQueryOptionsObject,
 	isPagination = false,
 ) {
+	console.log('queryOptions URL in useQuery', queryOptions)
 	const { data, ...other } = useSuspenseQuery<
 		T,
 		Error,
