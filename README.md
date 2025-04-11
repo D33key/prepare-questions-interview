@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Prepare Questions Interview
 
-## Getting Started
+Сайт для подготовки к собеседованиям с возможностью изучения вопросов и проверки знаний в формате экзамена.
 
-First, run the development server:
+🔗 **Ссылка на сайт**: [https://d33key.github.io/prepare-questions-interview/](https://d33key.github.io/prepare-questions-interview/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Основные функции
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 📚 Просмотр всех вопросов для собеседования
+- 🧠 Режим изучения вопросов
+- � Набор случайных карточек в качестве экзамена
+- 🔄 Возможность повторения материала
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Как использовать
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Откройте сайт
+2. Выберите типы вопросов (пока доступен только Javascript)
+3. Выберите режим:
+   - "Все карточки" - для полного просмотра и изучения
+   - "Случайные карточки" - для проверки знаний на случайных карточках
+4. Используйте интерфейс для навигации по вопросам
 
-## Learn More
+## Контрибуция
 
-To learn more about Next.js, take a look at the following resources:
+Если вы хотите добавить вопросы или улучшить проект, вы можете:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Создать issue с предложением
+- Сделать pull request с изменениями
