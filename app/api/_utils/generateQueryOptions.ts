@@ -8,10 +8,10 @@ export default function generateQueryOptions(
 	return queryOptions({
 		queryKey: [url],
 		queryFn: async () => {
-			console.log('url', `${process.env.NEXT_PUBLIC_BASE_URL}/api/${url}.json`);
-			const urlObj = new URL(
-				`${process.env.NEXT_PUBLIC_BASE_URL}/api/${url}.json`,
-			);
+			const basePath =
+				process.env.NEXT_PUBLIC_BASE_URL ??
+				'd33key.github.io/prepare-questions-interview';
+			const urlObj = new URL(`${basePath}/api/${url}.json`);
 			urlObj.search = new URLSearchParams({
 				pagination: String(isPagination),
 			}).toString();
