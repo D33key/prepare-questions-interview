@@ -9,7 +9,7 @@ export default function generateQueryOptions(
 		queryKey: [url],
 		queryFn: async () => {
 			const basePath =
-				process.env.NEXT_PUBLIC_BASE_URL ??
+				process.env?.NEXT_PUBLIC_BASE_URL ??
 				'd33key.github.io/prepare-questions-interview';
 			const urlObj = new URL(`${basePath}/api/${url}.json`);
 			urlObj.search = new URLSearchParams({
