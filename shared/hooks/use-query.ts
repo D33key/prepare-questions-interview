@@ -7,14 +7,13 @@ import {
 
 export default function useQuery<T extends QuestionResponse>(
 	queryOptions: KeysQueryOptionsObject,
-	isPagination = false,
 ) {
 	const { data, ...other } = useSuspenseQuery<
 		T,
 		Error,
 		T,
 		('javascript' | 'react')[]
-	>(queryOptionsObject[queryOptions](isPagination));
+	>(queryOptionsObject[queryOptions]);
 
 	return {
 		...other,

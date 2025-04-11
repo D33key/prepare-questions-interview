@@ -1,13 +1,10 @@
 import generateQueryOptions from './_utils/generateQueryOptions';
 
-type ApiRequest = (
-	isPagination: boolean,
-) => ReturnType<typeof generateQueryOptions>;
+type ApiRequest = ReturnType<typeof generateQueryOptions>;
 
 export const queryOptionsObject: Record<string, ApiRequest> = {
-	javascript: (isPagination) =>
-		generateQueryOptions('javascript', isPagination),
-	react: (isPagination) => generateQueryOptions('react', isPagination),
+	javascript: generateQueryOptions('javascript'),
+	react: generateQueryOptions('react'),
 };
 
 export type KeysQueryOptionsObject = keyof typeof queryOptionsObject;
