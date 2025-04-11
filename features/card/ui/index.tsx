@@ -7,14 +7,10 @@ import CardList from './card-list';
 import { CardsProvider } from './cards-provider';
 
 export interface RandomCardProps {
-	isMobile: boolean;
 	queryOptions: KeysQueryOptionsObject;
 }
 
-export default function RandomCards({
-	isMobile,
-	queryOptions,
-}: RandomCardProps) {
+export default function RandomCards({ queryOptions }: RandomCardProps) {
 	const { data, isLoading, isError } = useQuery(queryOptions);
 
 	if (isLoading) return <Loader className='mx-auto h-full' />;
@@ -23,7 +19,7 @@ export default function RandomCards({
 	return (
 		data && (
 			<CardsProvider initValue={data} seed={42}>
-				<CardList isMobile={isMobile} />
+				<CardList />
 			</CardsProvider>
 		)
 	);

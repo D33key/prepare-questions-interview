@@ -3,6 +3,7 @@ import { questions } from './questions';
 import { NextResponse, type NextRequest } from 'next/server';
 import { type QuestionResponse, type Pagination } from '@/shared/types';
 
+export const dynamic = 'force-static';
 export async function GET(request: NextRequest) {
 	const searchParams = request.nextUrl.searchParams;
 	const page = Number.parseInt(searchParams.get('page') || '1');
