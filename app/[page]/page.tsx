@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation';
-import { PageParams } from './_type';
+import { PageParams } from './_types';
 import { URLS_KEYS, type URLS_KEYS_TYPE } from '@/shared/constants/url';
 
 interface StaticParams {

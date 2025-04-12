@@ -23,7 +23,9 @@ export default function AppSidebar() {
 		<Sidebar>
 			<SidebarContent>
 				<SidebarGroup>
-					<SidebarGroupLabel>Test your knowledge</SidebarGroupLabel>
+					<SidebarGroupLabel>
+						Подготовка к собеседованию
+					</SidebarGroupLabel>
 					<SidebarGroupContent>
 						<SidebarMenu>
 							{items.map((item) => (

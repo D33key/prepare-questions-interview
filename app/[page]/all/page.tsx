@@ -1,4 +1,4 @@
-import { PageParams } from '@/app/[page]/_type';
+import { PageParams } from '@/app/[page]/_types';
 import AccordionCards from '@/entities/accordion';
 import { URLS_KEYS, type URLS_KEYS_TYPE } from '@/shared/constants/url';
 import capitalizeFirstLetter from '@/shared/utils/capitalizeFirstLetter';
