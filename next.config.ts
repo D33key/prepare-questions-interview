@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
 		unoptimized: true,
 	},
 	typescript: {
-		ignoreBuildErrors: true,
+		ignoreBuildErrors: false,
 	},
 	publicRuntimeConfig: {
 		NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
