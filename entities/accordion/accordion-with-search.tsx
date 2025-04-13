@@ -5,10 +5,12 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from '@/shared/ui/accordion/accordion';
+import Div from '@/shared/ui/div';
 import { Input } from '@/shared/ui/input/input';
-import Markdown from '../markdown';
-import useSearch from './hooks/use-search';
 import { memo } from 'react';
+import Markdown from '../markdown';
+import PageSubtitle from '../subtitle';
+import useSearch from './hooks/use-search';
 
 interface Props {
 	data: Question[];
@@ -20,7 +22,8 @@ export default function AccordionWithSearch({ data }: Props) {
 		match: 'contains',
 	});
 	return (
-		<div className='px-3'>
+		<Div noVariantsStyle className='px-3'>
+			<PageSubtitle />
 			<Input
 				className='mb-2'
 				onChange={(e) => setQuery(e.target.value)}
@@ -28,7 +31,7 @@ export default function AccordionWithSearch({ data }: Props) {
 				placeholder='Поиск по вопросам...'
 			/>
 			<AccordionMemo data={result} />
-		</div>
+		</Div>
 	);
 }
 

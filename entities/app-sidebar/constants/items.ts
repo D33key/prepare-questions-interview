@@ -20,7 +20,7 @@ export const items = [
 	},
 	{
 		title: 'React',
-		typeOfQuestions: generateTypesOfQuestions(URLS.javascript),
+		typeOfQuestions: generateTypesOfQuestions(URLS.react),
 		icon: Gem,
 	},
 ];

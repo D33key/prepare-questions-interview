@@ -1,5 +1,5 @@
 import AppSidebar from '@/entities/app-sidebar';
-import { SidebarProvider, SidebarTrigger } from '@/shared/ui/sidebar/sidebar';
+import { SidebarProvider } from '@/shared/ui/sidebar/sidebar';
 
 export default function PageLayout({
 	children,
@@ -9,10 +9,7 @@ export default function PageLayout({
 	return (
 		<SidebarProvider>
 			<AppSidebar />
-			<main className='w-dvw h-dvh overflow-hidden'>
-				<SidebarTrigger />
-				{children}
-			</main>
+			<main className='w-dvw h-dvh overflow-hidden'>{children}</main>
 		</SidebarProvider>
 	);
 }

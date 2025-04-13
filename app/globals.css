@@ -78,7 +78,7 @@
 	--sidebar-ring: oklch(0.708 0 0);
 
 	--calc-height: calc(100% - 28px);
-	--calc-height-screen: calc(100dvh - 60px);
+	--calc-height-screen: calc(100dvh - 110px);
 }
 
 .dark {
